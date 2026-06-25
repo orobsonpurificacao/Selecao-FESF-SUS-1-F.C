@@ -19,8 +19,6 @@ Sistema web para gestão de atividades dos residentes do Programa Integrado de R
 
 ## Como executar
 
-### Com Docker (recomendado)
-
 ```bash
 docker compose up --build
 ```
@@ -28,23 +26,6 @@ docker compose up --build
 - Frontend: http://localhost
 - API: http://localhost:8000
 - Swagger: http://localhost:8000/docs
-
-### Sem Docker
-
-**Backend:**
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-
-**Frontend:**
-```bash
-cd frontend
-npm install
-npm run dev
-# acesse http://localhost:5173
-```
 
 ## Endpoints da API
 
@@ -59,25 +40,3 @@ npm run dev
 | GET | /tarefas/{id} | Busca tarefa por ID |
 | PATCH | /tarefas/{id} | Atualiza tarefa parcialmente |
 | DELETE | /tarefas/{id} | Remove tarefa |
-
-## Estrutura
-
-```
-.
-├── backend/
-│   ├── main.py        # Endpoints FastAPI
-│   ├── models.py      # Modelos SQLAlchemy
-│   ├── database.py    # Configuração do banco
-│   ├── seed.py        # Dados fictícios iniciais
-│   ├── requirements.txt
-│   └── Dockerfile
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx    # Componente principal React
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── vite.config.js
-│   ├── nginx.conf
-│   └── Dockerfile
-└── docker-compose.yml
-```
